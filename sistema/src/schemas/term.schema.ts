@@ -1,0 +1,19 @@
+/* ZOD */
+import * as z from "zod";
+
+/* CONSTANTS */
+import { AGREE, DISAGREE, FIELD_DEFINITION_ANSWER, FIELD_EXAMPLE_ANSWER, FIELD_USE_CASE_ANSWER, NEUTRAL, SELECT_ONE_OPTION, TOTALLY_AGREE, TOTALLY_DISAGREE } from "@/constants";
+
+/**
+ * Schema for the term
+ * @date 21/11/2023 - 1:43:32
+ *
+ * @type {*}
+ */
+export const termSchema = z
+	.object({
+		[FIELD_DEFINITION_ANSWER]: z.enum([AGREE, DISAGREE, NEUTRAL, TOTALLY_AGREE, TOTALLY_DISAGREE], { required_error: SELECT_ONE_OPTION }),
+		[FIELD_EXAMPLE_ANSWER]: z.enum([AGREE, DISAGREE, NEUTRAL, TOTALLY_AGREE, TOTALLY_DISAGREE], { required_error: SELECT_ONE_OPTION }),
+		[FIELD_USE_CASE_ANSWER]: z.enum([AGREE, DISAGREE, NEUTRAL, TOTALLY_AGREE, TOTALLY_DISAGREE], { required_error: SELECT_ONE_OPTION })
+	})
+	.required();
